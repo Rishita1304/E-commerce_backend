@@ -68,6 +68,7 @@ router.post("/", verifyToken, async (req, res) => {
     const previousMonth = new Date(date.setMonth(lastMonth.getMonth() - 1));
   
     try {
+      const a=0;
       const income = await Order.aggregate([
         { $match: { createdAt: { $gte: previousMonth } } },
         {
