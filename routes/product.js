@@ -36,7 +36,7 @@ router.delete("/:id", verifyAndAdmin, async (req, res) => {
   }
 });
 
-router.get("/find/:id", verifyAndAdmin, async (req, res) => {
+router.get("/find/:id", async (req, res) => {
   try {
     const users = await Product.findById(req.params.id);
     res.status(201).json(users);
@@ -45,7 +45,7 @@ router.get("/find/:id", verifyAndAdmin, async (req, res) => {
   }
 });
 
-router.get("/", verifyAndAdmin,  async (req, res) => {
+router.get("/",  async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   try {

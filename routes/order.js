@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Order = require("../model/Order");
 const { verifyToken, verifyAndAdmin, verifyandAuthentication } = require('./verifyToken');
 
-router.post("/", verifyToken, async (req, res) => {
+router.post("/", async (req, res) => {
     const newOrder = new Order(req.body);
   
     try {
@@ -40,7 +40,7 @@ router.post("/", verifyToken, async (req, res) => {
   });
   
   //GET USER ORDERS
-  router.get("/find/:userId", verifyandAuthentication, async (req, res) => {
+  router.get("/find/:userId", async (req, res) => {
     try {
       const orders = await Order.find({ userId: req.params.userId });
       res.status(200).json(orders);
@@ -51,7 +51,7 @@ router.post("/", verifyToken, async (req, res) => {
   
   // //GET ALL
   
-  router.get("/", verifyAndAdmin, async (req, res) => {
+  router.get("/", async (req, res) => {
     try {
       const orders = await Order.find();
       res.status(200).json(orders);
