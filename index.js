@@ -29,6 +29,10 @@ app.use('/api/cart/', cartRoute)
 app.use('/api/order/', orderRoute)
 app.use('/api/checkout/', stripeRoute)
 
+app.get('/', (req,res) => {
+    res.send(`Hello on port ${PORT}`)
+})
+
 app.listen(PORT, () => {
     console.log(`Backend running at ${PORT}`);
 })

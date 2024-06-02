@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const User = require("../model/User");
 const { verifyToken, verifyandAuthentication, verifyAndAdmin } = require('./verifyToken');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 
 router.put('/:id', verifyandAuthentication, async(req,res) => {
